@@ -1,0 +1,27 @@
+
+application {
+  config {
+    baseName CallSign,
+    applicationType microservice,
+    packageName com.callsign.deliveryapi,
+    authenticationType jwt,
+    prodDatabaseType postgresql,    
+     buildTool maven
+  }
+  entities *
+}
+
+
+entity DeliveryDetails {
+  deliveryId Integer
+  customerType String
+  deliveryStatus String
+  expectedDeliveryTime Instant
+  currentDistanceFromDestinationInMeters Instant
+  timeToReachDestination Instant 
+}
+service * with serviceClass
+dto all with mapstruct
+
+
+    
