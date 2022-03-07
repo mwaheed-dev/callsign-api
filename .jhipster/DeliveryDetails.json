@@ -1,0 +1,43 @@
+{
+  "applications": ["CallSign"],
+  "changelogDate": "20220307003248",
+  "clientRootFolder": "CallSign",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "delivery_details",
+  "fields": [
+    {
+      "fieldName": "deliveryId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "customerType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deliveryStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expectedDeliveryTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "currentDistanceFromDestinationInMeters",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "timeToReachDestination",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "CallSign",
+  "name": "DeliveryDetails",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}
