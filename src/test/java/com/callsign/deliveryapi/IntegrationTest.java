@@ -1,6 +1,6 @@
 package com.callsign.deliveryapi;
 
-import com.callsign.deliveryapi.CallsigndeliveryApp;
+import com.callsign.deliveryapi.CallSignApp;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -12,6 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@SpringBootTest(classes = CallsigndeliveryApp.class)
+@SpringBootTest(classes = CallSignApp.class)
 public @interface IntegrationTest {
 }

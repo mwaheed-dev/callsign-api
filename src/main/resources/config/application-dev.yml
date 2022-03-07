@@ -20,6 +20,13 @@ logging:
     org.hibernate.SQL: DEBUG
     com.callsign.deliveryapi: DEBUG
 
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
+
 spring:
   devtools:
     restart:
@@ -30,10 +37,18 @@ spring:
   jackson:
     serialization:
       indent-output: true
+  cloud:
+    config:
+      uri: http://admin:${jhipster.registry.password}@localhost:8761/config
+      # name of the config server's property source (file.yml) that we want to use
+      name: CallSign
+      profile: dev
+      label: main # toggle to switch to a different version of the configuration as stored in git
+      # it can be set to any label, branch or commit of the configuration source Git repository
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:mem:callsigndelivery;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    username: callsigndelivery
+    url: jdbc:h2:file:./target/h2db/db/callsign;DB_CLOSE_DELAY=-1
+    username: CallSign
     password:
     hikari:
       poolName: Hikari
@@ -67,7 +82,7 @@ spring:
         enabled: true
 
 server:
-  port: 8088
+  port: 8081
 
 # ===================================================================
 # JHipster specific properties
@@ -76,6 +91,12 @@ server:
 # ===================================================================
 
 jhipster:
+  cache: # Cache configuration
+    ehcache: # Ehcache configuration
+      time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
+      max-entries: 100 # Number of objects in each cache entry
+  registry:
+    password: admin
   # CORS is disabled by default on microservices, as you should access them through a gateway.
   # If you want to enable it, please uncomment the configuration below.
   # cors:
